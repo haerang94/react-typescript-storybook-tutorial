@@ -15,7 +15,7 @@ $spacing: (
         display:block;
     }
 
-    @for $i from 1 to 13{// 전체 화면 차지하는 비율
+    @for $i from 1 to 12{// 전체 화면 차지하는 비율
         &_cols_#{$i}{
             flex-basis:$i/12*100%;
         }

@@ -1,12 +1,14 @@
 import React from 'react';
 import Box from './components/Box/Box';
 import Grid from './components/Grid/Grid';
+import GridRuler from './components/GridRuler/GridRuler';
 
 
 function App() {
   return (
-    <div className="App" style={{margin:'16px'}}>
-      <Grid container spacing="sm">
+    <div className="App" style={{margin:'16px',position:'relative'}}>
+      <GridRuler spacing="md"/>
+      <Grid container spacing="md">
         <Grid item cols={6}>
           <Box>Box 1</Box>
         </Grid>
