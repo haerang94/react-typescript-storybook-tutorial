@@ -1,0 +1,33 @@
+
+$spacing: (
+    'sm':8px,
+    'md':16px,
+    'lg':24px,
+);
+
+.Grid{
+    &_container{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    &_item{
+        display:block;
+    }
+
+    @for $i from 1 to 13{// 전체 화면 차지하는 비율
+        &_cols_#{$i}{
+            flex-basis:$i/12*100%;
+        }
+    }
+
+    @each $name, $value in $spacing{
+        &_spacing_#{$name}{// 컨테이너와 item의 margin을 갖게 하기 위해서 
+            margin:-$value;
+        }
+
+        &_spacing_#{$name} > &_item{
+            padding:$value
+        }
+    }
+}
