@@ -5,6 +5,26 @@ $spacing: (
     'lg':24px,
 );
 
+$breakpoint:(
+    'sm':600px,
+    'md':960px,
+    'lg':1280px,
+);
+
+$justifyContent:(
+    flex-start,flex-end,center,space-between,space-around,space-evenly
+);
+
+$alignItems:(
+    flex-start,flex-end,center,space-between,space-around,space-evenly
+);
+
+@mixin breakpoint($name){
+    @media screen and (min-width:map-get($breakpoint,$name)){
+        @content;
+    }
+}
+
 .Grid{
     &_container{
         display:flex;
@@ -15,11 +35,33 @@ $spacing: (
         display:block;
     }
 
-    @for $i from 1 to 12{// 전체 화면 차지하는 비율
-        &_cols_#{$i}{
-            flex-basis:$i/12*100%;
+    @include breakpoint('sm'){
+        @for $i from 1 to 12{
+            &_sm_#{$i}{
+                flex-basis:$i/12*100%;
+            }
         }
     }
+    @include breakpoint('md'){
+        @for $i from 1 to 12{
+            &_md_#{$i}{
+                flex-basis:$i/12*100%;
+            }
+        }
+    }
+    @include breakpoint('lg'){
+        @for $i from 1 to 12{
+            &_lg_#{$i}{
+                flex-basis:$i/12*100%;
+            }
+        }
+    }
+
+    // @for $i from 1 to 12{// 전체 화면 차지하는 비율
+    //     &_cols_#{$i}{
+    //         flex-basis:$i/12*100%;
+    //     }
+    // }
 
     @each $name, $value in $spacing{
         &_spacing_#{$name}{// 컨테이너와 item의 margin을 갖게 하기 위해서 
@@ -28,6 +70,18 @@ $spacing: (
 
         &_spacing_#{$name} > &_item{
             padding:$value
+        }
+    }
+
+    @each $value in $justifyContent{
+        &_justifyContent_#{$value}{
+            justify-content:$value;
+        }
+    }
+
+    @each $value in $alignItems{
+        &_alignItems_#{$value}{
+            align-items:$value;
         }
     }
 }

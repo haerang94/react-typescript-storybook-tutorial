@@ -6,19 +6,19 @@ import GridRuler from './components/GridRuler/GridRuler';
 
 function App() {
   return (
-    <div className="App" style={{margin:'16px',position:'relative'}}>
-      <GridRuler spacing="md"/>
-      <Grid container spacing="md">
-        <Grid item cols={6}>
+    <div className="App" style={{margin:'16px',position:'relative',height:"100vh"}}>
+      <GridRuler spacing="sm"/>
+      <Grid container spacing="sm" justifyContent="flex-start" alignItems="center" style={{height:'100%'}}>
+        <Grid item xs={1} sm={6} md={4} lg={3}>
           <Box>Box 1</Box>
         </Grid>
-        <Grid item cols={6}>
+        <Grid item xs={1} sm={6} md={4} lg={3}>
           <Box>Box 2</Box>
         </Grid>
-        <Grid item cols={6}>
+        <Grid item xs={1}  sm={6} md={4} lg={3}>
           <Box>Box 6</Box>
         </Grid>
-        <Grid item cols={6}>
+        <Grid item xs={1} sm={6} md={4} lg={3}>
           <Box>Box 3</Box>
         </Grid>
       </Grid>
